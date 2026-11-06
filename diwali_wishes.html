@@ -1,0 +1,1253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Diwali Surprise For You!</title>
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel+Decorative:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #130d20;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 50% 80%,
+        rgba(255,130,40,.20), transparent 35%),
+
+        radial-gradient(circle at 15% 20%,
+        rgba(160,50,100,.22), transparent 35%),
+
+        linear-gradient(
+            135deg,
+            #160b24,
+            #35102e,
+            #190c25,
+            #090a1c
+        );
+
+    z-index: -2;
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        ellipse at center,
+        transparent 20%,
+        rgba(0,0,0,.4) 100%
+    );
+}
+
+/* FLOATING LIGHTS */
+
+.lights {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.light {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    background: #ffd477;
+    border-radius: 50%;
+
+    box-shadow: 0 0 15px 4px rgba(255,180,70,.5);
+
+    animation: floatLight 4s infinite alternate ease-in-out;
+}
+
+.light:nth-child(1) {
+    left: 15%;
+    top: 20%;
+}
+
+.light:nth-child(2) {
+    left: 80%;
+    top: 25%;
+    animation-delay: 1s;
+}
+
+.light:nth-child(3) {
+    left: 25%;
+    top: 75%;
+    animation-delay: 2s;
+}
+
+.light:nth-child(4) {
+    left: 90%;
+    top: 70%;
+    animation-delay: .5s;
+}
+
+.light:nth-child(5) {
+    left: 50%;
+    top: 15%;
+    animation-delay: 1.5s;
+}
+
+@keyframes floatLight {
+
+    from {
+        opacity: .3;
+        transform: translateY(0) scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-25px) scale(1.5);
+    }
+
+}
+
+/* =================================
+   FIRST PAGE - SURPRISE
+================================= */
+
+#surpriseScreen {
+
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    z-index: 5;
+
+    transition: opacity 1s, transform 1s;
+
+}
+
+#surpriseScreen.hide {
+
+    opacity: 0;
+
+    transform: scale(1.2);
+
+    pointer-events: none;
+
+}
+
+.small-heading {
+
+    font-size: 12px;
+
+    letter-spacing: 6px;
+
+    color: #e9bd78;
+
+    margin-bottom: 25px;
+
+}
+
+.surprise-title {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(55px, 9vw, 90px);
+
+    color: #ffe4a3;
+
+    text-shadow: 0 0 25px rgba(255,180,60,.5);
+
+    margin-bottom: 8px;
+
+}
+
+.surprise-subtitle {
+
+    font-family: 'Cinzel Decorative', serif;
+
+    font-size: clamp(19px, 4vw, 32px);
+
+    color: #ffcf78;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+
+}
+
+.surprise-description {
+
+    max-width: 480px;
+
+    color: #e8d5c0;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    font-weight: 300;
+
+}
+
+/* ENVELOPE */
+
+.envelope {
+
+    position: relative;
+
+    width: 150px;
+    height: 105px;
+
+    margin: 45px 0 35px;
+
+    background: linear-gradient(
+        135deg,
+        #c77a35,
+        #74301f
+    );
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.4),
+        0 0 25px rgba(255,170,65,.2);
+
+    animation: envelopeFloat 2.5s infinite ease-in-out;
+
+}
+
+.envelope::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-top: 65px solid #edb45e;
+
+    transform-origin: top;
+
+    z-index: 2;
+
+}
+
+.envelope::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    left: 50%;
+    top: 48%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 30px;
+
+    color: #fff1b9;
+
+    z-index: 3;
+
+    text-shadow: 0 0 12px #ffcf70;
+
+}
+
+@keyframes envelopeFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(2deg);
+    }
+
+}
+
+/* SURPRISE BUTTON */
+
+.open-button {
+
+    padding: 16px 32px;
+
+    margin-top: 15px;
+
+    border: 1px solid #ffcf78;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #e9a344,
+        #a84e24
+    );
+
+    color: #fff;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 20px rgba(255,160,50,.3);
+
+    transition: .3s;
+
+}
+
+.open-button:hover {
+
+    transform: translateY(-4px) scale(1.05);
+
+    box-shadow: 0 0 35px rgba(255,160,50,.6);
+
+}
+
+.hint {
+
+    margin-top: 25px;
+
+    color: #d7b98f;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =================================
+   SECOND PAGE - DIWALI WISH
+================================= */
+
+#wishScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(.85);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease,
+        visibility 1.5s;
+
+}
+
+#wishScreen.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+
+}
+
+/* FIREWORKS CANVAS */
+
+#fireworks {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+}
+
+/* TOP TEXT */
+
+.top {
+
+    color: #f6cf86;
+
+    letter-spacing: 6px;
+
+    font-size: 11px;
+
+    margin-bottom: 25px;
+
+}
+
+/* HEADING */
+
+.diwali-title {
+
+    text-align: center;
+
+    margin: 10px 0;
+
+}
+
+/* HAPPY */
+
+.happy-text {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(75px, 11vw, 125px);
+
+    color: #fff0c2;
+
+    line-height: 1.15;
+
+    transform: rotate(-5deg);
+
+    text-shadow:
+        0 0 12px rgba(255,190,80,.6),
+        0 0 30px rgba(255,140,30,.3);
+
+    animation: happyGlow 3s infinite alternate;
+
+}
+
+@keyframes happyGlow {
+
+    from {
+        text-shadow: 0 0 10px rgba(255,190,80,.3);
+    }
+
+    to {
+        text-shadow:
+            0 0 18px rgba(255,190,80,.8),
+            0 0 35px rgba(255,140,30,.4);
+    }
+
+}
+
+/* ORNAMENT */
+
+.title-ornament {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    color: #ffca70;
+
+    margin: 12px 0;
+
+    font-size: 20px;
+
+}
+
+.title-ornament span {
+
+    width: 65px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffd477
+    );
+
+}
+
+.title-ornament span:last-child {
+
+    transform: rotate(180deg);
+
+}
+
+/* DIWALI TEXT */
+
+.diwali-text {
+
+    font-family: 'Cinzel Decorative', serif;
+
+    font-size: clamp(55px, 10vw, 115px);
+
+    font-weight: 900;
+
+    letter-spacing: 8px;
+
+    line-height: 1.3;
+
+    background: linear-gradient(
+        180deg,
+        #fff9e8,
+        #ffd77e,
+        #d88a29,
+        #ffe7a8
+    );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    filter: drop-shadow(
+        0 0 18px rgba(255,175,60,.5)
+    );
+
+    animation: diwaliGlow 3s infinite alternate;
+
+}
+
+@keyframes diwaliGlow {
+
+    from {
+        filter: drop-shadow(0 0 10px rgba(255,175,60,.3));
+    }
+
+    to {
+        filter: drop-shadow(0 0 25px rgba(255,175,60,.8));
+    }
+
+}
+
+/* BOTTOM TEXT */
+
+.title-bottom {
+
+    margin-top: 15px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #f5d5a0;
+
+}
+
+/* DIVIDER */
+
+.line {
+
+    width: 150px;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffd47d,
+        transparent
+    );
+
+    margin: 22px auto;
+
+}
+
+/* WISHES */
+
+.wishes {
+
+    max-width: 530px;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    color: #f5dfbc;
+
+    font-weight: 300;
+
+}
+
+/* DIYAS */
+
+.diyas {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-top: 30px;
+
+    font-size: 45px;
+
+    filter: drop-shadow(0 0 18px #ff9e2f);
+
+}
+
+.diyas span {
+
+    animation: flicker 1.3s infinite alternate;
+
+}
+
+.diyas span:nth-child(2) {
+    animation-delay: .5s;
+}
+
+.diyas span:nth-child(3) {
+    animation-delay: .9s;
+}
+
+@keyframes flicker {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.13);
+    }
+
+}
+
+/* FOOTER */
+
+.footer {
+
+    margin-top: 22px;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #d9b77e;
+
+}
+
+.click-hint {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #ffe4aa;
+
+    opacity: .8;
+
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 600px) {
+
+    .small-heading {
+        font-size: 9px;
+        letter-spacing: 4px;
+    }
+
+    .surprise-description {
+        font-size: 12px;
+    }
+
+    .top {
+        font-size: 9px;
+        letter-spacing: 4px;
+    }
+
+    .happy-text {
+        font-size: 75px;
+    }
+
+    .diwali-text {
+        font-size: 52px;
+        letter-spacing: 3px;
+    }
+
+    .title-bottom {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .wishes {
+        font-size: 12px;
+    }
+
+    .diyas {
+        font-size: 36px;
+        gap: 20px;
+    }
+
+    .footer {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+}
+
+@media(max-height: 700px) {
+
+    #wishScreen {
+        padding: 10px;
+    }
+
+    .top {
+        margin-bottom: 10px;
+    }
+
+    .happy-text {
+        font-size: clamp(55px, 9vw, 90px);
+    }
+
+    .diwali-text {
+        font-size: clamp(45px, 8vw, 75px);
+    }
+
+    .line {
+        margin: 12px auto;
+    }
+
+    .diyas {
+        margin-top: 15px;
+    }
+
+    .footer {
+        margin-top: 12px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- FLOATING LIGHTS -->
+
+<div class="lights">
+    <span class="light"></span>
+    <span class="light"></span>
+    <span class="light"></span>
+    <span class="light"></span>
+    <span class="light"></span>
+</div>
+
+
+<!-- FIRST PAGE: SURPRISE -->
+
+<section id="surpriseScreen">
+
+    <div class="small-heading">
+        ✦ A LITTLE SOMETHING SPECIAL ✦
+    </div>
+
+    <h1 class="surprise-title">
+        Hey, You!
+    </h1>
+
+    <h2 class="surprise-subtitle">
+        A Diwali Surprise Awaits
+    </h2>
+
+    <p class="surprise-description">
+
+        This Diwali, I have something special
+        prepared just for you.
+
+        <br>
+
+        A little surprise filled with lights,
+        happiness and beautiful wishes.
+
+    </p>
+
+    <div class="envelope"></div>
+
+    <button class="open-button" onclick="openSurprise()">
+        ✨ OPEN YOUR SURPRISE ✨
+    </button>
+
+    <div class="hint">
+        MADE WITH LOVE • JUST FOR YOU
+    </div>
+
+</section>
+
+
+<!-- SECOND PAGE: WISHES -->
+
+<section id="wishScreen">
+
+    <div class="top">
+        ✦ THE FESTIVAL OF LIGHTS ✦
+    </div>
+
+    <div class="diwali-title">
+
+        <div class="happy-text">
+            Happy
+        </div>
+
+        <div class="title-ornament">
+            <span></span>
+            ✦
+            <span></span>
+        </div>
+
+        <h1 class="diwali-text">
+            DIWALI
+        </h1>
+
+        <div class="title-bottom">
+            ✧ MAY LIGHT ALWAYS GUIDE YOUR WAY ✧
+        </div>
+
+    </div>
+
+    <div class="line"></div>
+
+    <p class="wishes">
+
+        May the beautiful lights of Diwali fill your
+        home with happiness, your heart with peace,
+        and your life with endless success.
+
+        <br><br>
+
+        Wishing you and your family a
+        joyful and prosperous Diwali!
+
+    </p>
+
+    <div class="diyas">
+        <span>🪔</span>
+        <span>🪔</span>
+        <span>🪔</span>
+    </div>
+
+    <div class="footer">
+        LIGHT • LOVE • PROSPERITY
+    </div>
+
+    <div class="click-hint">
+        ✨ CLICK ANYWHERE TO CELEBRATE ✨
+    </div>
+
+</section>
+
+
+<!-- FIREWORKS CANVAS -->
+
+<canvas id="fireworks"></canvas>
+
+
+<script>
+
+/* =================================
+   SCREEN TRANSITION
+================================= */
+
+const surpriseScreen = document.getElementById("surpriseScreen");
+
+const wishScreen = document.getElementById("wishScreen");
+
+let started = false;
+
+function openSurprise() {
+
+    if (started) return;
+
+    started = true;
+
+    surpriseScreen.classList.add("hide");
+
+    setTimeout(() => {
+
+        surpriseScreen.style.display = "none";
+
+        wishScreen.classList.add("show");
+
+        // Start automatic fireworks
+        automaticFireworks();
+
+    }, 1000);
+
+}
+
+
+/* =================================
+   REALISTIC FIREWORKS ENGINE
+================================= */
+
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d", { alpha: true });
+
+let rockets = [];
+let particles = [];
+
+const colors = [
+    "#ffd700", "#ff4b20", "#ff3c9e", "#36eaff",
+    "#ffffff", "#ff9b24", "#b58aff", "#8dffb2"
+];
+
+const MAX_ROCKETS = 45;
+const MAX_PARTICLES = 2400;
+const ROCKETS_PER_CLICK = 12;
+const CLICK_COOLDOWN = 120;
+
+let viewWidth = window.innerWidth;
+let viewHeight = window.innerHeight;
+let lastClickTime = 0;
+
+function resize() {
+    viewWidth = window.innerWidth;
+    viewHeight = window.innerHeight;
+
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width = Math.round(viewWidth * pixelRatio);
+    canvas.height = Math.round(viewHeight * pixelRatio);
+    canvas.style.width = viewWidth + "px";
+    canvas.style.height = viewHeight + "px";
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+}
+resize();
+window.addEventListener("resize", resize);
+
+
+/* ROCKETS: fast upward flight with a bright tail */
+
+class Rocket {
+    constructor(targetX, targetY) {
+        this.x = targetX + (Math.random() - 0.5) * 180;
+        this.y = viewHeight + 15;
+        this.targetX = targetX;
+        this.targetY = targetY;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.speed = 8 + Math.random() * 3;
+        this.trail = [];
+        this.alive = true;
+    }
+
+    update() {
+        const dx = this.targetX - this.x;
+        const dy = this.targetY - this.y;
+        const distance = Math.hypot(dx, dy);
+
+        if (distance < this.speed + 2) {
+            burst(this.x, this.y, this.color);
+            this.alive = false;
+            return;
+        }
+
+        const oldX = this.x;
+        const oldY = this.y;
+        this.x += (dx / distance) * this.speed;
+        this.y += (dy / distance) * this.speed;
+
+        this.trail.push({ x: oldX, y: oldY });
+        if (this.trail.length > 7) this.trail.shift();
+
+        // A few tiny hot embers fall behind the rocket.
+        if (particles.length < MAX_PARTICLES - 5 && Math.random() < 0.8) {
+            particles.push(new Particle(
+                this.x, this.y, this.color,
+                (Math.random() - 0.5) * 1.2,
+                Math.random() * 1.5,
+                0.8, "trail"
+            ));
+        }
+    }
+
+    draw() {
+        // Draw the rocket's fading, tapered shooting trail.
+        if (this.trail.length > 1) {
+            ctx.save();
+            ctx.lineCap = "round";
+            for (let i = 1; i < this.trail.length; i++) {
+                const a = this.trail[i - 1];
+                const b = this.trail[i];
+                ctx.globalAlpha = i / this.trail.length * 0.65;
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 1 + i * 0.35;
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.stroke();
+            }
+            ctx.restore();
+        }
+
+        // Bright rocket head and white-hot core.
+        ctx.save();
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 1.2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+
+/* PARTICLES: different speeds, gravity and fade for natural motion */
+
+class Particle {
+    constructor(x, y, color, vx, vy, life = 1, type = "spark") {
+        this.x = x;
+        this.y = y;
+        this.px = x;
+        this.py = y;
+        this.color = color;
+        this.vx = vx;
+        this.vy = vy;
+        this.life = life;
+        this.maxLife = life;
+        this.type = type;
+        this.gravity = type === "willow" ? 0.075 : 0.045;
+        this.drag = type === "willow" ? 0.986 : 0.982;
+        this.size = type === "trail" ? 1.2 : Math.random() * 1.8 + 0.7;
+        this.twinkle = Math.random();
+    }
+
+    update() {
+        this.px = this.x;
+        this.py = this.y;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += this.gravity;
+        this.vx *= this.drag;
+        this.vy *= this.drag;
+
+        this.life -= this.type === "trail" ? 0.055 :
+                     this.type === "willow" ? 0.009 : 0.014;
+    }
+
+    draw() {
+        if (this.life <= 0) return;
+
+        const fade = Math.max(0, this.life / this.maxLife);
+        const flicker = this.type === "spark" && this.twinkle > 0.72
+            ? (Math.random() > 0.5 ? 0.35 : 1)
+            : 1;
+
+        ctx.globalAlpha = fade * flicker;
+        ctx.strokeStyle = this.color;
+        ctx.fillStyle = this.color;
+        ctx.lineWidth = this.type === "willow" ? 1.5 : 1.1;
+        ctx.lineCap = "round";
+
+        // Short streaks make the sparks look like hot burning fragments.
+        ctx.beginPath();
+        ctx.moveTo(this.px, this.py);
+        ctx.lineTo(this.x, this.y);
+        ctx.stroke();
+
+        ctx.globalAlpha = fade * flicker;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+
+/* EXPLOSIONS: chrysanthemum, ring, willow and crackling effects */
+
+function burst(x, y, color) {
+    const available = MAX_PARTICLES - particles.length;
+    if (available < 30) return;
+
+    const styles = ["chrysanthemum", "ring", "willow"];
+    const style = styles[Math.floor(Math.random() * styles.length)];
+    const count = Math.min(
+        available,
+        style === "willow" ? 125 : 145
+    );
+
+    const rotation = Math.random() * Math.PI * 2;
+
+    for (let i = 0; i < count; i++) {
+        const angle = style === "ring"
+            ? (Math.PI * 2 * i / count) + rotation
+            : Math.random() * Math.PI * 2;
+
+        let speed;
+        if (style === "ring") {
+            speed = 3.4 + Math.random() * 1.2;
+        } else if (style === "willow") {
+            speed = 1.8 + Math.random() * 4.2;
+        } else {
+            speed = 1.5 + Math.pow(Math.random(), 0.45) * 5.8;
+        }
+
+        const particleColor = Math.random() < 0.76
+            ? color
+            : colors[Math.floor(Math.random() * colors.length)];
+
+        const vx = Math.cos(angle) * speed;
+        const vy = Math.sin(angle) * speed;
+
+        particles.push(new Particle(
+            x, y, particleColor, vx, vy, 1,
+            style === "willow" ? "willow" : "spark"
+        ));
+    }
+
+    // Small secondary crackles around the main explosion.
+    const crackles = Math.min(available - count, 28);
+    for (let i = 0; i < crackles; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 1 + Math.random() * 5;
+        particles.push(new Particle(
+            x, y, "#fff3c4",
+            Math.cos(angle) * speed,
+            Math.sin(angle) * speed,
+            0.75, "spark"
+        ));
+    }
+}
+
+
+function launch(x, y) {
+    if (rockets.length >= MAX_ROCKETS) return;
+    rockets.push(new Rocket(x, y));
+}
+
+
+/* CLICK: launch a wide volley of rockets across the sky */
+
+wishScreen.addEventListener("click", () => {
+    if (!started) return;
+
+    const now = performance.now();
+    if (now - lastClickTime < CLICK_COOLDOWN) return;
+    lastClickTime = now;
+
+    for (let i = 0; i < ROCKETS_PER_CLICK; i++) {
+        const x = 35 + Math.random() * (viewWidth - 70);
+        const y = 55 + Math.random() * viewHeight * 0.55;
+        launch(x, y);
+    }
+});
+
+
+/* AUTOMATIC FIREWORK SHOW: several rockets in each volley */
+
+function automaticFireworks() {
+    if (!started) return;
+
+    const volleySize = 3 + Math.floor(Math.random() * 3);
+
+    for (let i = 0; i < volleySize; i++) {
+        const x = 35 + Math.random() * (viewWidth - 70);
+        const y = 55 + Math.random() * viewHeight * 0.48;
+
+        setTimeout(() => {
+            if (started) launch(x, y);
+        }, i * 170);
+    }
+
+    setTimeout(automaticFireworks, 1500);
+}
+
+
+/* ANIMATION LOOP */
+
+function animate() {
+    ctx.clearRect(0, 0, viewWidth, viewHeight);
+
+    for (let i = rockets.length - 1; i >= 0; i--) {
+        const rocket = rockets[i];
+        rocket.update();
+        rocket.draw();
+        if (!rocket.alive) rockets.splice(i, 1);
+    }
+
+    // Additive blending gives overlapping sparks a brighter firework glow.
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+
+    for (let i = particles.length - 1; i >= 0; i--) {
+        const particle = particles[i];
+        particle.update();
+
+        if (particle.life <= 0) {
+            particles.splice(i, 1);
+        } else {
+            particle.draw();
+        }
+    }
+
+    ctx.restore();
+    ctx.globalAlpha = 1;
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
